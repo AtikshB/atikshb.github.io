@@ -1,1 +1,161 @@
-"Hello World"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 20px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .projects, .publications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card, .publication-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        h1 { font-size: 2.5em; }
+        h2 { font-size: 2em; margin-bottom: 30px; }
+        h3 { font-size: 1.5em; margin-bottom: 15px; }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Your Name</h1>
+            <p>Your Title / Role</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Your professional summary and background information goes here.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>Project 1</h3>
+                    <p>Project description and key achievements.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Project 2</h3>
+                    <p>Project description and key achievements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <div class="container">
+            <h2>Publications</h2>
+            <div class="publications">
+                <div class="publication-card">
+                    <h3>Paper Title 1</h3>
+                    <p>Authors, Conference/Journal, Year</p>
+                    <p>Brief description of the research and findings.</p>
+                </div>
+                <div class="publication-card">
+                    <h3>Paper Title 2</h3>
+                    <p>Authors, Conference/Journal, Year</p>
+                    <p>Brief description of the research and findings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p>Email: your.email@example.com</p>
+                <p>LinkedIn: linkedin.com/in/yourprofile</p>
+                <p>GitHub: github.com/yourusername</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
