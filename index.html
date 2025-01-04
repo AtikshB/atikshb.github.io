@@ -6,6 +6,26 @@
     <title>Atiksh Bhardwaj</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <style>
+        :root {
+            /* Dark theme variables */
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --nav-bg: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --card-border: #404040;
+            --hover-color: #3498db;
+        }
+
+        [data-theme="light"] {
+            /* Light theme variables */
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --nav-bg: #727272c7;
+            --card-bg: #ffffff;
+            --card-border: #dddddd;
+            --hover-color: #3498db;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,22 +35,76 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--bg-color);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             max-width: 100vw;
             overflow-x: hidden;
             padding-top: 60px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
+        /* Theme Toggle Switch Styles */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            position: relative;
+            width: 50px;
+            height: 24px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #3498db;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
         /* Top Bar Styles */
         .top-bar {
+            background: var(--nav-bg);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: #2c3e50;
+            background: #727272c7;
             color: white;
             z-index: 1000;
             display: flex;
@@ -96,9 +170,10 @@
 
         /* Section Styles */
         section {
-            padding: 3rem 0;
+            padding: 1.5rem 0; /* Reduced from 3rem to 1.5rem */
             width: 100%;
         }
+
 
         /* About Section Styles */
         .about-container {
@@ -110,8 +185,8 @@
 
         .profile-image {
             flex-shrink: 0;
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             overflow: hidden;
         }
@@ -136,11 +211,12 @@
 
         .publication-card {
             border: 1px solid #ddd;
+            border-color: var(--card-border);
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
-            background: white;
+            background: var(--card-bg);
             display: flex;
             gap: 1.5rem;
             align-items: center;
@@ -177,12 +253,31 @@
         h2 { 
             font-size: clamp(1.5rem, 4vw, 2rem);
             margin-bottom: 1.5rem;
-            text-align: center;
+            /* Removed text-align: center */
         }
 
         h3 { 
             font-size: clamp(1.2rem, 3vw, 1.5rem);
             margin-bottom: 1rem;
+        }
+
+        .experience-content {
+            font-size: clamp(1.1rem, 1.1vw, 1.5rem);
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .resume-button {
+            background: #3498db;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .resume-button:hover {
+            background: #2980b9;
+            color: white;
         }
 
         /* Contact Styles */
@@ -195,7 +290,7 @@
         }
 
         .contact-info a {
-            color: #2c3e50;
+            color: var(--text-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -218,7 +313,7 @@
 
         /* Footer Styles */
         footer {
-            background: #2c3e50;
+            background: var(--nav-bg);
             color: white;
             text-align: center;
             padding: 1rem 0;
@@ -279,18 +374,29 @@
     </style>
 </head>
 <body>
+    <!-- Rest of the HTML remains exactly the same -->
     <!-- Fixed Top Bar -->
     <div class="top-bar">
         <div class="top-bar-container">
             <div class="site-title">
                 <h1>Atiksh Bhardwaj</h1>
-                <p>Undergraduate Researcher at Cornell University</p>
             </div>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#publications">Publications</a></li>
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="./docs/resume_bhardwaj.pdf" class="resume-button">Resume</a></li>
+                    <li>
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <div class="slider"></div>
+                            </label>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -304,13 +410,32 @@
                 <!-- Profile Image Container -->
                 <div class="profile-image">
                     <!-- Uncomment and replace src with your actual image path -->
-                    <!-- <img src="/path/to/your-profile-photo.jpg" alt="Atiksh Bhardwaj"> -->
-                    <img src="/api/placeholder/200/200" alt="Atiksh Bhardwaj">
+                    <img src="./images/atiksh.jpg" alt="Atiksh Bhardwaj">
                 </div>
                 
                 <!-- About Text -->
                 <div class="about-content">
-                    <p>TODO</p>
+                    <p>Hi, I'm Atiksh and am currently a Junior at Cornell University studying Computer Science. At Cornell, I'm part of the <a href="https://portal.cs.cornell.edu/"> PoRTaL </a> research group advised by Prof. <a href="https://sanjibanc.github.io/"> Sanjiban Choudhury </a>.
+                    </p>
+                    <p></p>
+                    <p>I enjoy finding new methods of teaching robots and working robotics systems and am interested in Imitation Learning, Reinforcement Learning, and Human-Robot Interaction. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="about-container">
+                <div class="about-content">
+                    <p class="experience-content">TA for Robot Learning (CS 4756) + Research (Fall 2024)</p>
+                    <p class="experience-content">Research Intern @ PoRTaL (Summer 2024)</p>
+                    <p class="experience-content">TA for Artificial Intelligence (CS 4700) + Research (Spring 2024)</p>
+                    <p class="experience-content">Consultant for Functional Programming (CS 3110) + Research (Fall 2023)</p>
+                    <p class="experience-content">Research Intern @ PoRTaL (Summer 2023)</p>
+                    <p class="experience-content">Robotics Intern @ <a href="https://brains4drones.com/"> Brains4Drones </a> (Summer 2022)</p>
                 </div>
             </div>
         </div>
@@ -324,8 +449,8 @@
                 <div class="publication-card">
                     <div class="publication-thumbnail">
                         <!-- Uncomment and replace src with your actual image path -->
-                        <!-- <img src="/path/to/mosaic-thumbnail.jpg" alt="MOSAIC Project Thumbnail"> -->
-                        <img src="/api/placeholder/150/150" alt="MOSAIC Project Thumbnail">
+                        <img src="./images/mosaic.png" alt="MOSAIC Project Thumbnail">
+                        <!-- <img src="/api/placeholder/150/150" alt="MOSAIC Project Thumbnail"> -->
                     </div>
                     <div class="publication-content">
                         <h3>MOSAIC: A Modular System for Assistive and Interactive Cooking</h3>
@@ -338,8 +463,7 @@
                 <div class="publication-card">
                     <div class="publication-thumbnail">
                         <!-- Uncomment and replace src with your actual image path -->
-                        <!-- <img src="/path/to/interact-thumbnail.jpg" alt="InteRACT Project Thumbnail"> -->
-                        <img src="/api/placeholder/150/150" alt="InteRACT Project Thumbnail">
+                        <img src="./images/interact.png" alt="InteRACT Project Thumbnail">
                     </div>
                     <div class="publication-content">
                         <h3>InteRACT: Transformer Models for Human Intent Prediction Conditioned on Robot Actions</h3>
@@ -352,14 +476,39 @@
                 <div class="publication-card">
                     <div class="publication-thumbnail">
                         <!-- Uncomment and replace src with your actual image path -->
-                        <!-- <img src="/path/to/manicast-thumbnail.jpg" alt="ManiCast Project Thumbnail"> -->
-                        <img src="/api/placeholder/150/150" alt="ManiCast Project Thumbnail">
+                        <img src="./images/manicast.png" alt="ManiCast Project Thumbnail">
                     </div>
                     <div class="publication-content">
                         <h3>ManiCast: Collaborative Manipulation with Cost-Aware Human Forecasting</h3>
                         <p>Kushal Kedia, Prithwish Dan, Atiksh Bhardwaj, Sanjiban Choudhury, CoRL, 2023</p>
                         <p>7th Annual Conference on Robot Learning (CoRL), 2023</p>
                         <p><a href="https://portal-cornell.github.io/manicast/">Project Page</a> / <a href="https://arxiv.org/abs/2310.13258">Paper</a> / <a href="https://github.com/portal-cornell/manicast">Code</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="publications">
+                <div class="publication-card">
+                    <div class="publication-thumbnail">
+                        <!-- Uncomment and replace src with your actual image path -->
+                        <img src="./images/DINK.png" alt="DINK Project Thumbnail">
+                    </div>
+                    <div class="publication-content">
+                        <h3>DINK: Differently Initialized Q-Networks</h3>
+                        <p>Atiksh Bhardwaj, Jonathen Chen</p>
+                        <p>Q-Networks represent an off-policy reinforcement learning approach centered on estimating value
+                            functions from environments. As an off-policy method, it relies on an external dataset for learning
+                            and computing Q-values. This dependency on provided data can yield diverse outcomes, either
+                            enhancing or hindering the Q-Network's performance. To delve into this dynamic, we embarked
+                            on an investigation utilizing conventional imitation learning techniques like Behavior Cloning and
+                            DAgger to generate data for training Q-Networks.</p>
+                        <p><a href="https://www.youtube.com/watch?v=PskK09o84-k">Video</a> / <a href="./docs/DINKPaper.pdf">Paper</a> / <a href="https://github.com/AtikshB/DINK-CS4756-Final">Code</a></p>
                     </div>
                 </div>
             </div>
@@ -383,5 +532,32 @@
             <p>&copy; 2025 Atiksh Bhardwaj. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const toggleSwitch = document.querySelector('#checkbox');
+        const html = document.documentElement;
+
+        // Check for saved theme preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            html.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'light') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        // Handle theme switch
+        function switchTheme(e) {
+            if (e.target.checked) {
+                html.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme);
+    </script>
 </body>
 </html>
