@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Atiksh Bhardwaj</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <style>
         * {
             margin: 0;
@@ -15,146 +16,371 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            max-width: 100vw;
+            overflow-x: hidden;
+            padding-top: 60px;
         }
 
+        /* Top Bar Styles */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #2c3e50;
+            color: white;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-bar-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .site-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .site-title h1 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .site-title p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: none;
+        }
+
+        /* Container Styles */
         .container {
-            max-width: 1200px;
+            width: 90%;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        nav {
-            background: #34495e;
-            padding: 20px 0;
-        }
-
+        /* Navigation Styles */
         nav ul {
             list-style: none;
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
         }
 
         nav a {
             color: white;
             text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
 
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Section Styles */
         section {
-            padding: 60px 0;
+            padding: 3rem 0;
+            width: 100%;
         }
 
-        .projects, .publications {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+        /* About Section Styles */
+        .about-container {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin-top: 1rem;
         }
 
-        .project-card, .publication-card {
+        .profile-image {
+            flex-shrink: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        /* Publications Styles */
+        .publications {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .publication-card {
             border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 5px;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: white;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
         }
 
-        h1 { font-size: 2.5em; }
-        h2 { font-size: 2em; margin-bottom: 30px; }
-        h3 { font-size: 1.5em; margin-bottom: 15px; }
+        .publication-card:hover {
+            transform: translateY(-5px);
+        }
 
-        .contact-info {
+        .publication-thumbnail {
+            flex-shrink: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .publication-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .publication-content {
+            flex: 1;
+        }
+
+        /* Heading Styles */
+        h1 { 
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        h2 { 
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 1.5rem;
             text-align: center;
         }
 
+        h3 { 
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Styles */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+        }
+
+        .contact-info a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #3498db;
+        }
+
+        /* Link Styles */
+        .publication-card a {
+            color: #3498db;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .publication-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styles */
         footer {
             background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 60px;
+            padding: 1rem 0;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 0 10px;
+            }
+
+            .top-bar-container {
+                padding: 0 10px;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .site-title h1 {
+                font-size: 1rem;
+            }
+
+            .contact-info {
+                gap: 1rem;
+            }
+
+            .publication-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .publication-thumbnail {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-image {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .site-title p {
+                display: inline;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Your Name</h1>
-            <p>Your Title / Role</p>
+    <!-- Fixed Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="site-title">
+                <h1>Atiksh Bhardwaj</h1>
+                <p>Undergraduate Researcher at Cornell University</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </header>
+    </div>
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
+    <!-- About Section -->
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
-            <p>Your professional summary and background information goes here.</p>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3>Project 1</h3>
-                    <p>Project description and key achievements.</p>
+            <div class="about-container">
+                <!-- Profile Image Container -->
+                <div class="profile-image">
+                    <!-- Uncomment and replace src with your actual image path -->
+                    <!-- <img src="/path/to/your-profile-photo.jpg" alt="Atiksh Bhardwaj"> -->
+                    <img src="/api/placeholder/200/200" alt="Atiksh Bhardwaj">
                 </div>
-                <div class="project-card">
-                    <h3>Project 2</h3>
-                    <p>Project description and key achievements.</p>
+                
+                <!-- About Text -->
+                <div class="about-content">
+                    <p>TODO</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Publications Section -->
     <section id="publications">
         <div class="container">
             <h2>Publications</h2>
             <div class="publications">
                 <div class="publication-card">
-                    <h3>Paper Title 1</h3>
-                    <p>Authors, Conference/Journal, Year</p>
-                    <p>Brief description of the research and findings.</p>
+                    <div class="publication-thumbnail">
+                        <!-- Uncomment and replace src with your actual image path -->
+                        <!-- <img src="/path/to/mosaic-thumbnail.jpg" alt="MOSAIC Project Thumbnail"> -->
+                        <img src="/api/placeholder/150/150" alt="MOSAIC Project Thumbnail">
+                    </div>
+                    <div class="publication-content">
+                        <h3>MOSAIC: A Modular System for Assistive and Interactive Cooking</h3>
+                        <p>PoRTaL Research Group</p>
+                        <p>8th Annual Conference on Robot Learning (CoRL), 2024</p>
+                        <p><a href="https://portal-cornell.github.io/MOSAIC/">Project Page</a> / <a href="https://arxiv.org/abs/2402.18796">Paper</a> / <a href="https://github.com/portal-cornell/MOSAIC">Code</a></p>
+                    </div>
                 </div>
+
                 <div class="publication-card">
-                    <h3>Paper Title 2</h3>
-                    <p>Authors, Conference/Journal, Year</p>
-                    <p>Brief description of the research and findings.</p>
+                    <div class="publication-thumbnail">
+                        <!-- Uncomment and replace src with your actual image path -->
+                        <!-- <img src="/path/to/interact-thumbnail.jpg" alt="InteRACT Project Thumbnail"> -->
+                        <img src="/api/placeholder/150/150" alt="InteRACT Project Thumbnail">
+                    </div>
+                    <div class="publication-content">
+                        <h3>InteRACT: Transformer Models for Human Intent Prediction Conditioned on Robot Actions</h3>
+                        <p>Kushal Kedia, Prithwish Dan, Atiksh Bhardwaj, Sanjiban Choudhury, ICRA, 2024</p>
+                        <p>IEEE International Conference on Robotics and Automation (ICRA), 2024</p>
+                        <p><a href="https://portal-cornell.github.io/interact/">Project Page</a> / <a href="https://arxiv.org/abs/2311.12943">Paper</a> / <a href="https://github.com/portal-cornell/interact/">Code</a></p>
+                    </div>
+                </div>
+
+                <div class="publication-card">
+                    <div class="publication-thumbnail">
+                        <!-- Uncomment and replace src with your actual image path -->
+                        <!-- <img src="/path/to/manicast-thumbnail.jpg" alt="ManiCast Project Thumbnail"> -->
+                        <img src="/api/placeholder/150/150" alt="ManiCast Project Thumbnail">
+                    </div>
+                    <div class="publication-content">
+                        <h3>ManiCast: Collaborative Manipulation with Cost-Aware Human Forecasting</h3>
+                        <p>Kushal Kedia, Prithwish Dan, Atiksh Bhardwaj, Sanjiban Choudhury, CoRL, 2023</p>
+                        <p>7th Annual Conference on Robot Learning (CoRL), 2023</p>
+                        <p><a href="https://portal-cornell.github.io/manicast/">Project Page</a> / <a href="https://arxiv.org/abs/2310.13258">Paper</a> / <a href="https://github.com/portal-cornell/manicast">Code</a></p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
-            <h2>Contact</h2>
             <div class="contact-info">
-                <p>Email: your.email@example.com</p>
-                <p>LinkedIn: linkedin.com/in/yourprofile</p>
-                <p>GitHub: github.com/yourusername</p>
+                <a href="mailto:ab2635@cornell.edu"><i class="fa fa-envelope-square fa-4x"></i></a>
+                <a href="https://www.linkedin.com/in/atiksh-bhardwaj-b080ab241/"><i class="fa fa-linkedin-square fa-4x"></i></a>
+                <a href="https://github.com/AtikshB"><i class="fa fa-github-square fa-4x"></i></a>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Your Name. All rights reserved.</p>
+            <p>&copy; 2025 Atiksh Bhardwaj. All rights reserved.</p>
         </div>
     </footer>
 </body>
