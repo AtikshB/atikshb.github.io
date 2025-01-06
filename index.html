@@ -374,8 +374,6 @@
     </style>
 </head>
 <body>
-    <!-- Rest of the HTML remains exactly the same -->
-    <!-- Fixed Top Bar -->
     <div class="top-bar">
         <div class="top-bar-container">
             <div class="site-title">
@@ -385,10 +383,11 @@
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#news">News</a></li>
                     <li><a href="#publications">Publications</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="./docs/resume_bhardwaj.pdf" class="resume-button">Resume</a></li>
+                    <li><a href="./docs/resume_bhardwaj.pdf" target="_blank">Resume</a></li>
                     <li>
                         <div class="theme-switch-wrapper">
                             <label class="theme-switch" for="checkbox">
@@ -410,12 +409,12 @@
                 <!-- Profile Image Container -->
                 <div class="profile-image">
                     <!-- Uncomment and replace src with your actual image path -->
-                    <img src="./images/atiksh.jpg" alt="Atiksh Bhardwaj">
+                    <img src="./images/atiksh.jpg" alt="Atiksh Bhardwaj">   
                 </div>
                 
                 <!-- About Text -->
                 <div class="about-content">
-                    <p>Hi, I'm Atiksh and am currently a Junior at Cornell University studying Computer Science. At Cornell, I'm part of the <a href="https://portal.cs.cornell.edu/"> PoRTaL </a> research group advised by Prof. <a href="https://sanjibanc.github.io/"> Sanjiban Choudhury </a>.
+                    <p>Hi, I'm Atiksh and am currently a Junior at Cornell University studying Computer Science. At Cornell, I'm part of the <body link=#3498db alink=#3498db vlink=#3498db> <a href="https://portal.cs.cornell.edu/" target="_blank">PoRTaL</a> </body> research group advised by Prof. <a href="https://sanjibanc.github.io/" target="_blank">Sanjiban Choudhury</a>.
                     </p>
                     <p></p>
                     <p>I enjoy finding new methods of teaching robots and working robotics systems and am interested in Imitation Learning, Reinforcement Learning, and Human-Robot Interaction. </p>
@@ -430,12 +429,24 @@
             <h2>Experience</h2>
             <div class="about-container">
                 <div class="about-content">
-                    <p class="experience-content">TA for Robot Learning (CS 4756) + Research (Fall 2024)</p>
-                    <p class="experience-content">Research Intern @ PoRTaL (Summer 2024)</p>
-                    <p class="experience-content">TA for Artificial Intelligence (CS 4700) + Research (Spring 2024)</p>
-                    <p class="experience-content">Consultant for Functional Programming (CS 3110) + Research (Fall 2023)</p>
-                    <p class="experience-content">Research Intern @ PoRTaL (Summer 2023)</p>
-                    <p class="experience-content">Robotics Intern @ <a href="https://brains4drones.com/"> Brains4Drones </a> (Summer 2022)</p>
+                    <p class="experience-content">Research Intern @ PoRTaL (Summer 2023 - Present)</p>
+                    <p class="experience-content">TA for Robot Learning (CS 4756) (Fall 2024)</p>
+                    <p class="experience-content">TA for Artificial Intelligence (CS 4700) (Spring 2024)</p>
+                    <p class="experience-content">Consultant for Functional Programming (CS 3110) (Fall 2023)</p>
+                    <p class="experience-content">Robotics Intern @ <a href="https://brains4drones.com/" target="_blank">Brains4Drones</a> (Summer 2022)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news">
+        <div class="container">
+            <h2>News and Media</h2>
+            <div class="about-container">
+                <div class="about-content">
+                    <p class="experience-content">(Oct. 16th 2022) <a href="https://devpost.com/software/nftree-s2i970" target="_blank">NFTTRee</a> wins <a href="https://minepi.com/blog/university-hackathon-winners/" target="_blank">PI Network Track</a> at Big Red Hackathon </p>
+                    <p class="experience-content">(Mar. 4th 2022) <a href="https://blogs.mathworks.com/student-lounge/2022/03/04/sibling-duo-share-how-participating-in-student-competitions-drive-interest-in-stem-careers/" target="_blank">MathWorks Blog:</a> Sibling Duo Share How Participating in Student Competitions Drives Interest in STEM Careers </p>
+                    
                 </div>
             </div>
         </div>
@@ -448,41 +459,38 @@
             <div class="publications">
                 <div class="publication-card">
                     <div class="publication-thumbnail">
-                        <!-- Uncomment and replace src with your actual image path -->
                         <img src="./images/mosaic.png" alt="MOSAIC Project Thumbnail">
-                        <!-- <img src="/api/placeholder/150/150" alt="MOSAIC Project Thumbnail"> -->
                     </div>
                     <div class="publication-content">
                         <h3>MOSAIC: A Modular System for Assistive and Interactive Cooking</h3>
                         <p>PoRTaL Research Group</p>
                         <p>8th Annual Conference on Robot Learning (CoRL), 2024</p>
-                        <p><a href="https://portal-cornell.github.io/MOSAIC/">Project Page</a> / <a href="https://arxiv.org/abs/2402.18796">Paper</a> / <a href="https://github.com/portal-cornell/MOSAIC">Code</a></p>
+                        <p>Awards: Best Paper Award at the ICRA 2024 VLNMN Workshop and Best Poster Award at the ICRA 2024 MoMa Workshop</p>
+                        <p><a href="https://portal-cornell.github.io/MOSAIC/" target="_blank">Project Page</a> / <a href="https://arxiv.org/abs/2402.18796" target="_blank">Paper</a> / <a href="https://github.com/portal-cornell/MOSAIC" target="_blank">Code</a></p>
                     </div>
                 </div>
 
                 <div class="publication-card">
                     <div class="publication-thumbnail">
-                        <!-- Uncomment and replace src with your actual image path -->
                         <img src="./images/interact.png" alt="InteRACT Project Thumbnail">
                     </div>
                     <div class="publication-content">
                         <h3>InteRACT: Transformer Models for Human Intent Prediction Conditioned on Robot Actions</h3>
-                        <p>Kushal Kedia, Atiksh Bhardwaj, Prithwish Dan, Sanjiban Choudhury, ICRA, 2024</p>
+                        <p>Kushal Kedia, <b>Atiksh Bhardwaj</b>, Prithwish Dan, Sanjiban Choudhury, ICRA, 2024</p>
                         <p>IEEE International Conference on Robotics and Automation (ICRA), 2024</p>
-                        <p><a href="https://portal-cornell.github.io/interact/">Project Page</a> / <a href="https://arxiv.org/abs/2311.12943">Paper</a> / <a href="https://github.com/portal-cornell/interact/">Code</a></p>
+                        <p><a href="https://portal-cornell.github.io/interact/" target="_blank">Project Page</a> / <a href="https://arxiv.org/abs/2311.12943" target="_blank">Paper</a> / <a href="https://github.com/portal-cornell/interact/" target="_blank">Code</a></p>
                     </div>
                 </div>
 
                 <div class="publication-card">
                     <div class="publication-thumbnail">
-                        <!-- Uncomment and replace src with your actual image path -->
                         <img src="./images/manicast.png" alt="ManiCast Project Thumbnail">
                     </div>
                     <div class="publication-content">
                         <h3>ManiCast: Collaborative Manipulation with Cost-Aware Human Forecasting</h3>
-                        <p>Kushal Kedia, Prithwish Dan, Atiksh Bhardwaj, Sanjiban Choudhury, CoRL, 2023</p>
+                        <p>Kushal Kedia, Prithwish Dan, <b>Atiksh Bhardwaj</b>, Sanjiban Choudhury, CoRL, 2023</p>
                         <p>7th Annual Conference on Robot Learning (CoRL), 2023</p>
-                        <p><a href="https://portal-cornell.github.io/manicast/">Project Page</a> / <a href="https://arxiv.org/abs/2310.13258">Paper</a> / <a href="https://github.com/portal-cornell/manicast">Code</a></p>
+                        <p><a href="https://portal-cornell.github.io/manicast/" target="_blank">Project Page</a> / <a href="https://arxiv.org/abs/2310.13258" target="_blank">Paper</a> / <a href="https://github.com/portal-cornell/manicast" target="_blank">Code</a></p>
                     </div>
                 </div>
             </div>
@@ -508,7 +516,7 @@
                             enhancing or hindering the Q-Network's performance. To delve into this dynamic, we embarked
                             on an investigation utilizing conventional imitation learning techniques like Behavior Cloning and
                             DAgger to generate data for training Q-Networks.</p>
-                        <p><a href="https://www.youtube.com/watch?v=PskK09o84-k">Video</a> / <a href="./docs/DINKPaper.pdf">Paper</a> / <a href="https://github.com/AtikshB/DINK-CS4756-Final">Code</a></p>
+                        <p><a href="https://www.youtube.com/watch?v=PskK09o84-k" target="_blank">Video</a> / <a href="./docs/DINKPaper.pdf" target="_blank">Paper</a> / <a href="https://github.com/AtikshB/DINK-CS4756-Final" target="_blank">Code</a></p>
                     </div>
                 </div>
             </div>
@@ -519,9 +527,9 @@
     <section id="contact">
         <div class="container">
             <div class="contact-info">
-                <a href="mailto:ab2635@cornell.edu"><i class="fa fa-envelope-square fa-4x"></i></a>
-                <a href="https://www.linkedin.com/in/atiksh-bhardwaj-b080ab241/"><i class="fa fa-linkedin-square fa-4x"></i></a>
-                <a href="https://github.com/AtikshB"><i class="fa fa-github-square fa-4x"></i></a>
+                <a href="mailto:ab2635@cornell.edu" target="_blank"><i class="fa fa-envelope-square fa-4x"></i></a>
+                <a href="https://www.linkedin.com/in/atiksh-bhardwaj-b080ab241/" target="_blank"><i class="fa fa-linkedin-square fa-4x"></i></a>
+                <a href="https://github.com/AtikshB" target="_blank"><i class="fa fa-github-square fa-4x"></i></a>
             </div>
         </div>
     </section>
