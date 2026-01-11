@@ -1,652 +1,934 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0MZVDMN9ZK"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-0MZVDMN9ZK"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-    gtag('config', 'G-0MZVDMN9ZK');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atiksh Bhardwaj</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-    <style>
-        :root {
-            /* Dark theme variables */
-            --bg-color: #1a1a1a;
-            --text-color: #ffffff;
-            --nav-bg: #1a1a1a;
-            --card-bg: #2d2d2d;
-            --card-border: #404040;
-            --hover-color: #3498db;
-        }
+            gtag("config", "G-0MZVDMN9ZK");
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Atiksh Bhardwaj</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
+        />
+        <style>
+            :root {
+                /* Dark theme variables */
+                --bg-color: #1a1a1a;
+                --text-color: #ffffff;
+                --nav-bg: #1a1a1a;
+                --card-bg: #2d2d2d;
+                --card-border: #404040;
+                --hover-color: #3498db;
+            }
 
-        [data-theme="light"] {
-            /* Light theme variables */
-            --bg-color: #ffffff;
-            --text-color: #333333;
-            --nav-bg: #727272c7;
-            --card-bg: #ffffff;
-            --card-border: #dddddd;
-            --hover-color: #3498db;
-        }
+            [data-theme="light"] {
+                /* Light theme variables */
+                --bg-color: #ffffff;
+                --text-color: #333333;
+                --nav-bg: #727272c7;
+                --card-bg: #ffffff;
+                --card-border: #dddddd;
+                --hover-color: #3498db;
+            }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            max-width: 100vw;
-            overflow-x: hidden;
-            padding-top: 60px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: var(--text-color);
+                background-color: var(--bg-color);
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                max-width: 100vw;
+                overflow-x: hidden;
+                padding-top: 60px;
+                transition:
+                    background-color 0.3s ease,
+                    color 0.3s ease;
+            }
 
-        /* Theme Toggle Switch Styles */
-        .theme-switch-wrapper {
-            display: flex;
-            align-items: center;
-            margin-left: 1rem;
-        }
+            /* Theme Toggle Switch Styles */
+            .theme-switch-wrapper {
+                display: flex;
+                align-items: center;
+                margin-left: 1rem;
+            }
 
-        .theme-switch {
-            display: inline-block;
-            position: relative;
-            width: 50px;
-            height: 24px;
-        }
+            .theme-switch {
+                display: inline-block;
+                position: relative;
+                width: 50px;
+                height: 24px;
+            }
 
-        .theme-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
+            .theme-switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
 
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 24px;
-        }
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                transition: 0.4s;
+                border-radius: 24px;
+            }
 
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 16px;
+                width: 16px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                transition: 0.4s;
+                border-radius: 50%;
+            }
 
-        input:checked + .slider {
-            background-color: #3498db;
-        }
+            input:checked + .slider {
+                background-color: #3498db;
+            }
 
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-        /* Top Bar Styles */
-        .top-bar {
-            background: var(--nav-bg);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: #727272c7;
-            color: white;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            height: 60px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .top-bar-container {
-            width: 90%;
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .site-title {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .site-title h1 {
-            font-size: 1.2rem;
-            margin: 0;
-        }
-
-        .site-title p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            display: none;
-        }
-
-        /* Container Styles */
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation Styles */
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #3498db;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 1.5rem 0; /* Reduced from 3rem to 1.5rem */
-            width: 100%;
-        }
-
-
-        /* About Section Styles */
-        .about-container {
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-            margin-top: 1rem;
-        }
-
-        .profile-image {
-            flex-shrink: 0;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-content {
-            flex: 1;
-        }
-
-        /* Publications Styles */
-        .publications {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .publication-card {
-            border: 1px solid #ddd;
-            border-color: var(--card-border);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            background: var(--card-bg);
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .publication-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .publication-thumbnail {
-            flex-shrink: 0;
-            width: 150px;
-            height: 150px;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .publication-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .publication-content {
-            flex: 1;
-        }
-
-        /* Heading Styles */
-        h1 { 
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            margin-bottom: 1rem;
-        }
-
-        h2 { 
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            margin-bottom: 1.5rem;
-            /* Removed text-align: center */
-        }
-
-        h3 { 
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            margin-bottom: 1rem;
-        }
-
-        .experience-content {
-            font-size: clamp(1.1rem, 1.1vw, 1.5rem);
-            line-height: 1.4;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .resume-button {
-            background: #3498db;
-            padding: 0.4rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        .resume-button:hover {
-            background: #2980b9;
-            color: white;
-        }
-
-        /* Contact Styles */
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            padding: 1rem;
-        }
-
-        .contact-info a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: #3498db;
-        }
-
-        /* Link Styles */
-        .publication-card a {
-            color: #3498db;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-
-        .publication-card a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer Styles */
-        footer {
-            background: var(--nav-bg);
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: auto;
-            width: 100%;
-        }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
-                padding: 0 10px;
+            input:checked + .slider:before {
+                transform: translateX(26px);
+            }
+            /* Top Bar Styles */
+            .top-bar {
+                background: var(--nav-bg);
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: #727272c7;
+                color: white;
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                height: 60px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
 
             .top-bar-container {
-                padding: 0 10px;
+                width: 90%;
+                max-width: 800px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
             }
 
-            nav ul {
+            .site-title {
+                display: flex;
+                align-items: center;
                 gap: 1rem;
             }
 
             .site-title h1 {
-                font-size: 1rem;
+                font-size: 1.2rem;
+                margin: 0;
             }
 
-            .contact-info {
-                gap: 1rem;
+            .site-title p {
+                font-size: 0.9rem;
+                opacity: 0.9;
+                display: none;
             }
 
-            .publication-card {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .publication-thumbnail {
-                width: 100%;
-                max-width: 300px;
+            /* Container Styles */
+            .container {
+                width: 90%;
+                max-width: 800px;
                 margin: 0 auto;
+                padding: 0 20px;
             }
 
+            /* Navigation Styles */
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 1.5rem;
+                margin: 0;
+                padding: 0;
+            }
+
+            nav a {
+                color: white;
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: color 0.3s ease;
+            }
+
+            nav a:hover {
+                color: #3498db;
+            }
+
+            /* Section Styles */
+            section {
+                padding: 1.5rem 0; /* Reduced from 3rem to 1.5rem */
+                width: 100%;
+            }
+
+            /* About Section Styles */
             .about-container {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+                display: flex;
+                gap: 2rem;
+                align-items: flex-start;
+                margin-top: 1rem;
             }
 
             .profile-image {
+                flex-shrink: 0;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+
+            .profile-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .about-content {
+                flex: 1;
+            }
+
+            /* Publications Styles */
+            .publications {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+
+            .publication-card {
+                border: 1px solid #ddd;
+                border-color: var(--card-border);
+                padding: 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+                background: var(--card-bg);
+                display: flex;
+                gap: 1.5rem;
+                align-items: center;
+            }
+
+            .publication-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .publication-thumbnail {
+                flex-shrink: 0;
+                width: 150px;
+                height: 150px;
+                border-radius: 4px;
+                overflow: hidden;
+            }
+
+            .publication-thumbnail img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .publication-content {
+                flex: 1;
+            }
+
+            /* Heading Styles */
+            h1 {
+                font-size: clamp(2rem, 5vw, 2.5rem);
                 margin-bottom: 1rem;
             }
-        }
 
-        @media (min-width: 640px) {
-            .site-title p {
-                display: inline;
-            }
-        }
-
-        .menu-toggle {
-            display: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
+            h2 {
+                font-size: clamp(1.5rem, 4vw, 2rem);
+                margin-bottom: 1.5rem;
+                /* Removed text-align: center */
             }
 
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background: var(--nav-bg);
+            h3 {
+                font-size: clamp(1.2rem, 3vw, 1.5rem);
+                margin-bottom: 1rem;
+            }
+
+            .experience-content {
+                font-size: clamp(1.1rem, 1.1vw, 1.5rem);
+                line-height: 1.4;
+                margin-bottom: 1rem;
+                font-weight: 500;
+            }
+
+            .resume-button {
+                background: #3498db;
+                padding: 0.4rem 1rem;
+                border-radius: 4px;
+                transition: background-color 0.3s ease;
+            }
+
+            .resume-button:hover {
+                background: #2980b9;
+                color: white;
+            }
+
+            /* Contact Styles */
+            .contact-info {
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                flex-wrap: wrap;
                 padding: 1rem;
             }
 
-            nav ul.active {
-                display: flex;
+            .contact-info a {
+                color: var(--text-color);
+                text-decoration: none;
+                transition: color 0.3s ease;
             }
 
-            nav ul li {
-                margin: 0.5rem 0;
+            .contact-info a:hover {
+                color: #3498db;
             }
-        }
-    </style>
-</head>
-<body>
-    <div class="top-bar">
-        <div class="top-bar-container">
-            <div class="site-title">
-                <h1>Atiksh Bhardwaj</h1>
-            </div>
-            <div class="menu-toggle">
-                <i class="fa fa-bars"></i>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#news">News</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="./docs/resume_bhardwaj.pdf" target="_blank">Resume</a></li>
-                    <li>
-                        <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="checkbox">
-                                <input type="checkbox" id="checkbox" />
-                                <div class="slider"></div>
-                            </label>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-container">
-                <!-- Profile Image Container -->
-                <div class="profile-image">
-                    <!-- Uncomment and replace src with your actual image path -->
-                    <img src="./images/atiksh.jpg" alt="Atiksh Bhardwaj">   
-                </div>
-                
-                <!-- About Text -->
-                <div class="about-content">
-                    <p>Hi, I'm Atiksh and am currently a Senior at Cornell University studying Computer Science. I'm currently applying for CS PhD positions across the country. At Cornell, I'm part of the <body link=#3498db alink=#3498db vlink=#3498db> <a href="https://portal.cs.cornell.edu/" target="_blank">PoRTaL</a> </body> research group advised by Prof. <a href="https://sanjibanc.github.io/" target="_blank">Sanjiban Choudhury</a>.
-                    </p>
-                    <p></p>
-                    <p>I enjoy finding new methods of teaching robots and working robotics systems and am interested in Imitation Learning, Reinforcement Learning, and Human-Robot Interaction. </p>
-                </div>
-            </div>
-        </div>
-    </section>
+            /* Link Styles */
+            .publication-card a {
+                color: #3498db;
+                text-decoration: none;
+                display: inline-block;
+                margin-top: 1rem;
+            }
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="container">
-            <h2>Experience</h2>
-            <div class="about-container">
-                <div class="about-content">
-                    <p class="experience-content">(Summer 2023 - Present) Research Intern @ PoRTaL</p>
-                    <p class="experience-content">(Fall 2025) TA for Machine Learning (CS 3/5780)</p>
-                    <p class="experience-content">(Summer 2025) Software Engineering Intern @ <a href="https://www.ti.com/" target="_blank">Texas Instruments</a></p>
-                    <p class="experience-content">(Spring 2025) TA for Reinforcement Learning (CS 4/5789)</p>
-                    <p class="experience-content">(Fall 2024) TA for Robot Learning (CS 4/5756)</p>
-                    <p class="experience-content">(Spring 2024) TA for Artificial Intelligence (CS 4700)</p>
-                    <p class="experience-content">(Fall 2023) Consultant for Functional Programming (CS 3110)</p>
-                    <p class="experience-content">(Summer 2022) Robotics Intern @ <a href="https://brains4drones.com/" target="_blank">Brains4Drones</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
+            .publication-card a:hover {
+                text-decoration: underline;
+            }
 
-    <section id="news">
-        <div class="container">
-            <h2>News and Media</h2>
-            <div class="about-container">
-                <div class="about-content">
-                    <p class="experience-content">(Oct. 16th 2022) <a href="https://devpost.com/software/nftree-s2i970" target="_blank">NFTTRee</a> wins <a href="https://minepi.com/blog/university-hackathon-winners/" target="_blank">PI Network Track</a> at Big Red Hackathon </p>
-                    <p class="experience-content">(Mar. 4th 2022) <a href="https://blogs.mathworks.com/student-lounge/2022/03/04/sibling-duo-share-how-participating-in-student-competitions-drive-interest-in-stem-careers/" target="_blank">MathWorks Blog:</a> Sibling Duo Share How Participating in Student Competitions Drives Interest in STEM Careers </p>
-                    
-                </div>
-            </div>
-        </div>
-    </section>
+            /* Footer Styles */
+            footer {
+                background: var(--nav-bg);
+                color: white;
+                text-align: center;
+                padding: 1rem 0;
+                margin-top: auto;
+                width: 100%;
+            }
 
-    <!-- Publications Section -->
-    <section id="publications">
-        <div class="container">
-            <h2>Publications</h2>
-            <div class="publications">
-                <div class="publication-card">
-                    <div class="publication-thumbnail">
-                        <img src="./images/xdiff.png" alt="X-Diffusion Project Thumbnail">
-                    </div>
-                    <div class="publication-content">
-                        <h3>X-Diffusion: Training Diffusion Policies on Cross-Embodiment Human Demonstrations</h3>
-                        <p>Maximus A. Pace*, Prithwish Dan*, Chuanruo Ning, <b>Atiksh Bhardwaj</b>, Audrey Du, Edward W. Duan, Wei-Chiu Ma†, Kushal Kedia†</p>
-                        <p>Under Review for the IEEE International Conference on Robotics and Automation (ICRA), 2025</p>
-                        <p><a href="https://portal-cornell.github.io/X-Diffusion/" target="_blank">Project Page</a> / <a href="https://arxiv.org/abs/2511.04671" target="_blank">Paper</a> / <a href="https://github.com/portal-cornell/X-Diffusion" target="_blank">Code (Coming Soon)</a></p>
-                    </div>
-                </div>
-                <div class="publication-card">
-                    <div class="publication-thumbnail">
-                        <img src="./images/sailor.png" alt="SAILOR Project Thumbnail">
-                    </div>
-                    <div class="publication-content">
-                        <h3>A Smooth Sea Never Made a Skilled SAILOR: Robust Imitation via Learning to Search</h3>
-                        <p>Arnav Kumar Jain*, Vibhakar Motha*, Subin Kim, <b>Atiksh Bhardwaj</b>, Juntao Ren, Yunhai Feng, Sanjiban Choudhury, Gokul Swamy</p>
-                        <p>39th Annual Conference on Neural Information Processing Systems (NeurIPS), 2025</p>
-                        <p>Selected as Spotlight Paper (Top 3%, 688 selected out of 21544 submissions)</p>
-                        <p><a href="https://gokul.dev/sailor/" target="_blank">Project Page</a> / <a href="https://arxiv.org/abs/2506.05294" target="_blank">Paper</a> / <a href="https://github.com/arnavkj1995/SAILOR" target="_blank">Code</a></p>
-                    </div>
-                </div>
-                <div class="publication-card">
-                    <div class="publication-thumbnail">
-                        <img src="./images/mosaic.png" alt="MOSAIC Project Thumbnail">
-                    </div>
-                    <div class="publication-content">
-                        <h3>MOSAIC: A Modular System for Assistive and Interactive Cooking</h3>
-                        <p>Huaxiaoyue Wang*, Kushal Kedia*, Juntao Ren*, Rahma
-                            Abdullah, <b>Atiksh Bhardwaj</b>, Angela Chao, Kelly Y Chen, Nathaniel
-                            Chin, Prithwish Dan, Xinyi Fan, Gonzalo Gonzalez-Pumariega, Aditya
-                            Kompella, Maximus Adrian Pace, Yash Sharma, Xiangwan Sun, Neha
-                            Sunkara, and Sanjiban Choudhury</p>
-                        <p>8th Annual Conference on Robot Learning (CoRL), 2024</p>
-                        <p>Awards: Best Paper Award at the ICRA 2024 VLNMN Workshop and Best Poster Award at the ICRA 2024 MoMa Workshop</p>
-                        <p><a href="https://portal-cornell.github.io/MOSAIC/" target="_blank">Project Page</a> / <a href="https://arxiv.org/abs/2402.18796" target="_blank">Paper</a> / <a href="https://github.com/portal-cornell/MOSAIC" target="_blank">Code</a></p>
-                    </div>
-                </div>
-                <div class="publication-card">
-                    <div class="publication-thumbnail">
-                        <img src="./images/interact.png" alt="InteRACT Project Thumbnail">
-                    </div>
-                    <div class="publication-content">
-                        <h3>InteRACT: Transformer Models for Human Intent Prediction Conditioned on Robot Actions</h3>
-                        <p>Kushal Kedia, <b>Atiksh Bhardwaj</b>, Prithwish Dan, Sanjiban Choudhury, ICRA, 2024</p>
-                        <p>IEEE International Conference on Robotics and Automation (ICRA), 2024</p>
-                        <p><a href="https://portal-cornell.github.io/interact/" target="_blank">Project Page</a> / <a href="https://arxiv.org/abs/2311.12943" target="_blank">Paper</a> / <a href="https://github.com/portal-cornell/interact/" target="_blank">Code</a></p>
-                    </div>
-                </div>
+            /* Media Queries */
+            @media (max-width: 768px) {
+                .container {
+                    width: 95%;
+                    padding: 0 10px;
+                }
 
-                <div class="publication-card">
-                    <div class="publication-thumbnail">
-                        <img src="./images/manicast.png" alt="ManiCast Project Thumbnail">
-                    </div>
-                    <div class="publication-content">
-                        <h3>ManiCast: Collaborative Manipulation with Cost-Aware Human Forecasting</h3>
-                        <p>Kushal Kedia, Prithwish Dan, <b>Atiksh Bhardwaj</b>, Sanjiban Choudhury, CoRL, 2023</p>
-                        <p>7th Annual Conference on Robot Learning (CoRL), 2023</p>
-                        <p><a href="https://portal-cornell.github.io/manicast/" target="_blank">Project Page</a> / <a href="https://arxiv.org/abs/2310.13258" target="_blank">Paper</a> / <a href="https://github.com/portal-cornell/manicast" target="_blank">Code</a></p>
-                    </div>
+                .top-bar-container {
+                    padding: 0 10px;
+                }
+
+                nav ul {
+                    gap: 1rem;
+                }
+
+                .site-title h1 {
+                    font-size: 1rem;
+                }
+
+                .contact-info {
+                    gap: 1rem;
+                }
+
+                .publication-card {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .publication-thumbnail {
+                    width: 100%;
+                    max-width: 300px;
+                    margin: 0 auto;
+                }
+
+                .about-container {
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                .profile-image {
+                    margin-bottom: 1rem;
+                }
+            }
+
+            @media (min-width: 640px) {
+                .site-title p {
+                    display: inline;
+                }
+            }
+
+            .menu-toggle {
+                display: none;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            @media (max-width: 768px) {
+                .menu-toggle {
+                    display: block;
+                }
+
+                nav ul {
+                    display: none;
+                    position: absolute;
+                    top: 60px;
+                    left: 0;
+                    right: 0;
+                    flex-direction: column;
+                    background: var(--nav-bg);
+                    padding: 1rem;
+                }
+
+                nav ul.active {
+                    display: flex;
+                }
+
+                nav ul li {
+                    margin: 0.5rem 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top-bar">
+            <div class="top-bar-container">
+                <div class="site-title">
+                    <h1>Atiksh Bhardwaj</h1>
                 </div>
+                <div class="menu-toggle">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li>
+                            <a href="./docs/resume_bhardwaj.pdf" target="_blank"
+                                >Resume</a
+                            >
+                        </li>
+                        <li>
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox" />
+                                    <div class="slider"></div>
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="publications">
-                <div class="publication-card">
-                    <div class="publication-thumbnail">
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-container">
+                    <!-- Profile Image Container -->
+                    <div class="profile-image">
                         <!-- Uncomment and replace src with your actual image path -->
-                        <img src="./images/DINK.png" alt="DINK Project Thumbnail">
+                        <img src="./images/atiksh.jpg" alt="Atiksh Bhardwaj" />
                     </div>
-                    <div class="publication-content">
-                        <h3>DINK: Differently Initialized Q-Networks</h3>
-                        <p>Atiksh Bhardwaj, Jonathen Chen</p>
-                        <p>Q-Networks represent an off-policy reinforcement learning approach centered on estimating value
-                            functions from environments. As an off-policy method, it relies on an external dataset for learning
-                            and computing Q-values. This dependency on provided data can yield diverse outcomes, either
-                            enhancing or hindering the Q-Network's performance. To delve into this dynamic, we embarked
-                            on an investigation utilizing conventional imitation learning techniques like Behavior Cloning and
-                            DAgger to generate data for training Q-Networks.</p>
-                        <p><a href="https://www.youtube.com/watch?v=PskK09o84-k" target="_blank">Video</a> / <a href="./docs/DINKPaper.pdf" target="_blank">Paper</a> / <a href="https://github.com/AtikshB/DINK-CS4756-Final" target="_blank">Code</a></p>
+
+                    <!-- About Text -->
+                    <div class="about-content">
+                        <p>
+                            Hi, I'm Atiksh and am currently a Senior at Cornell
+                            University studying Computer Science. At Cornell,
+                            I'm part of the
+                            <body
+                                link="#3498db"
+                                alink="#3498db"
+                                vlink="#3498db"
+                            >
+                                <a
+                                    href="https://portal.cs.cornell.edu/"
+                                    target="_blank"
+                                    >PoRTaL</a
+                                >
+                            </body>
+                            research group advised by Prof.
+                            <a
+                                href="https://sanjibanc.github.io/"
+                                target="_blank"
+                                >Sanjiban Choudhury</a
+                            >.
+                        </p>
+                        <p></p>
+                        <p>
+                            I enjoy finding new methods of teaching robots and
+                            working robotics systems and am interested in
+                            Imitation Learning, Reinforcement Learning, and
+                            Human-Robot Interaction.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="contact-info">
-                <a href="mailto:ab2635@cornell.edu" target="_blank"><i class="fa fa-envelope-square fa-4x"></i></a>
-                <a href="https://www.linkedin.com/in/atiksh-bhardwaj-b080ab241/" target="_blank"><i class="fa fa-linkedin-square fa-4x"></i></a>
-                <a href="https://github.com/AtikshB" target="_blank"><i class="fa fa-github-square fa-4x"></i></a>
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="container">
+                <h2>Experience</h2>
+                <div class="about-container">
+                    <div class="about-content">
+                        <p class="experience-content">
+                            (Summer 2023 - Present) Research Intern @ PoRTaL
+                        </p>
+                        <p class="experience-content">
+                            (Fall 2025) TA for Machine Learning (CS 3/5780)
+                        </p>
+                        <p class="experience-content">
+                            (Summer 2025) Software Engineering Intern @
+                            <a href="https://www.ti.com/" target="_blank"
+                                >Texas Instruments</a
+                            >
+                        </p>
+                        <p class="experience-content">
+                            (Spring 2025) TA for Reinforcement Learning (CS
+                            4/5789)
+                        </p>
+                        <p class="experience-content">
+                            (Fall 2024) TA for Robot Learning (CS 4/5756)
+                        </p>
+                        <p class="experience-content">
+                            (Spring 2024) TA for Artificial Intelligence (CS
+                            4700)
+                        </p>
+                        <p class="experience-content">
+                            (Fall 2023) Consultant for Functional Programming
+                            (CS 3110)
+                        </p>
+                        <p class="experience-content">
+                            (Summer 2022) Robotics Intern @
+                            <a href="https://brains4drones.com/" target="_blank"
+                                >Brains4Drones</a
+                            >
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Atiksh Bhardwaj. All rights reserved.</p>
-        </div>
-    </footer>
+        <section id="news">
+            <div class="container">
+                <h2>News and Media</h2>
+                <div class="about-container">
+                    <div class="about-content">
+                        <p class="experience-content">
+                            (Oct. 16th 2022)
+                            <a
+                                href="https://devpost.com/software/nftree-s2i970"
+                                target="_blank"
+                                >NFTTRee</a
+                            >
+                            wins
+                            <a
+                                href="https://minepi.com/blog/university-hackathon-winners/"
+                                target="_blank"
+                                >PI Network Track</a
+                            >
+                            at Big Red Hackathon
+                        </p>
+                        <p class="experience-content">
+                            (Mar. 4th 2022)
+                            <a
+                                href="https://blogs.mathworks.com/student-lounge/2022/03/04/sibling-duo-share-how-participating-in-student-competitions-drive-interest-in-stem-careers/"
+                                target="_blank"
+                                >MathWorks Blog:</a
+                            >
+                            Sibling Duo Share How Participating in Student
+                            Competitions Drives Interest in STEM Careers
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <script>
-        const toggleSwitch = document.querySelector('#checkbox');
-        const html = document.documentElement;
+        <!-- Publications Section -->
+        <section id="publications">
+            <div class="container">
+                <h2>Publications</h2>
+                <div class="publications">
+                    <div class="publication-card">
+                        <div class="publication-thumbnail">
+                            <img
+                                src="./images/xdiff.png"
+                                alt="X-Diffusion Project Thumbnail"
+                            />
+                        </div>
+                        <div class="publication-content">
+                            <h3>
+                                X-Diffusion: Training Diffusion Policies on
+                                Cross-Embodiment Human Demonstrations
+                            </h3>
+                            <p>
+                                Maximus A. Pace*, Prithwish Dan*, Chuanruo Ning,
+                                <b>Atiksh Bhardwaj</b>, Audrey Du, Edward W.
+                                Duan, Wei-Chiu Ma†, Kushal Kedia†
+                            </p>
+                            <p>
+                                Under Review for the IEEE International
+                                Conference on Robotics and Automation (ICRA),
+                                2025
+                            </p>
+                            <p>
+                                <a
+                                    href="https://portal-cornell.github.io/X-Diffusion/"
+                                    target="_blank"
+                                    >Project Page</a
+                                >
+                                /
+                                <a
+                                    href="https://arxiv.org/abs/2511.04671"
+                                    target="_blank"
+                                    >Paper</a
+                                >
+                                /
+                                <a
+                                    href="https://github.com/portal-cornell/X-Diffusion"
+                                    target="_blank"
+                                    >Code (Coming Soon)</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                    <div class="publication-card">
+                        <div class="publication-thumbnail">
+                            <img
+                                src="./images/sailor.png"
+                                alt="SAILOR Project Thumbnail"
+                            />
+                        </div>
+                        <div class="publication-content">
+                            <h3>
+                                A Smooth Sea Never Made a Skilled SAILOR: Robust
+                                Imitation via Learning to Search
+                            </h3>
+                            <p>
+                                Arnav Kumar Jain*, Vibhakar Motha*, Subin Kim,
+                                <b>Atiksh Bhardwaj</b>, Juntao Ren, Yunhai Feng,
+                                Sanjiban Choudhury, Gokul Swamy
+                            </p>
+                            <p>
+                                39th Annual Conference on Neural Information
+                                Processing Systems (NeurIPS), 2025
+                            </p>
+                            <p>
+                                Selected as Spotlight Paper (Top 3%, 688
+                                selected out of 21544 submissions)
+                            </p>
+                            <p>
+                                <a
+                                    href="https://gokul.dev/sailor/"
+                                    target="_blank"
+                                    >Project Page</a
+                                >
+                                /
+                                <a
+                                    href="https://arxiv.org/abs/2506.05294"
+                                    target="_blank"
+                                    >Paper</a
+                                >
+                                /
+                                <a
+                                    href="https://github.com/arnavkj1995/SAILOR"
+                                    target="_blank"
+                                    >Code</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                    <div class="publication-card">
+                        <div class="publication-thumbnail">
+                            <img
+                                src="./images/mosaic.png"
+                                alt="MOSAIC Project Thumbnail"
+                            />
+                        </div>
+                        <div class="publication-content">
+                            <h3>
+                                MOSAIC: A Modular System for Assistive and
+                                Interactive Cooking
+                            </h3>
+                            <p>
+                                Huaxiaoyue Wang*, Kushal Kedia*, Juntao Ren*,
+                                Rahma Abdullah, <b>Atiksh Bhardwaj</b>, Angela
+                                Chao, Kelly Y Chen, Nathaniel Chin, Prithwish
+                                Dan, Xinyi Fan, Gonzalo Gonzalez-Pumariega,
+                                Aditya Kompella, Maximus Adrian Pace, Yash
+                                Sharma, Xiangwan Sun, Neha Sunkara, and Sanjiban
+                                Choudhury
+                            </p>
+                            <p>
+                                8th Annual Conference on Robot Learning (CoRL),
+                                2024
+                            </p>
+                            <p>
+                                Awards: Best Paper Award at the ICRA 2024 VLNMN
+                                Workshop and Best Poster Award at the ICRA 2024
+                                MoMa Workshop
+                            </p>
+                            <p>
+                                <a
+                                    href="https://portal-cornell.github.io/MOSAIC/"
+                                    target="_blank"
+                                    >Project Page</a
+                                >
+                                /
+                                <a
+                                    href="https://arxiv.org/abs/2402.18796"
+                                    target="_blank"
+                                    >Paper</a
+                                >
+                                /
+                                <a
+                                    href="https://github.com/portal-cornell/MOSAIC"
+                                    target="_blank"
+                                    >Code</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                    <div class="publication-card">
+                        <div class="publication-thumbnail">
+                            <img
+                                src="./images/interact.png"
+                                alt="InteRACT Project Thumbnail"
+                            />
+                        </div>
+                        <div class="publication-content">
+                            <h3>
+                                InteRACT: Transformer Models for Human Intent
+                                Prediction Conditioned on Robot Actions
+                            </h3>
+                            <p>
+                                Kushal Kedia, <b>Atiksh Bhardwaj</b>, Prithwish
+                                Dan, Sanjiban Choudhury, ICRA, 2024
+                            </p>
+                            <p>
+                                IEEE International Conference on Robotics and
+                                Automation (ICRA), 2024
+                            </p>
+                            <p>
+                                <a
+                                    href="https://portal-cornell.github.io/interact/"
+                                    target="_blank"
+                                    >Project Page</a
+                                >
+                                /
+                                <a
+                                    href="https://arxiv.org/abs/2311.12943"
+                                    target="_blank"
+                                    >Paper</a
+                                >
+                                /
+                                <a
+                                    href="https://github.com/portal-cornell/interact/"
+                                    target="_blank"
+                                    >Code</a
+                                >
+                            </p>
+                        </div>
+                    </div>
 
-        // Check for saved theme preference
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme) {
-            html.setAttribute('data-theme', currentTheme);
-            if (currentTheme === 'light') {
-                toggleSwitch.checked = true;
+                    <div class="publication-card">
+                        <div class="publication-thumbnail">
+                            <img
+                                src="./images/manicast.png"
+                                alt="ManiCast Project Thumbnail"
+                            />
+                        </div>
+                        <div class="publication-content">
+                            <h3>
+                                ManiCast: Collaborative Manipulation with
+                                Cost-Aware Human Forecasting
+                            </h3>
+                            <p>
+                                Kushal Kedia, Prithwish Dan,
+                                <b>Atiksh Bhardwaj</b>, Sanjiban Choudhury,
+                                CoRL, 2023
+                            </p>
+                            <p>
+                                7th Annual Conference on Robot Learning (CoRL),
+                                2023
+                            </p>
+                            <p>
+                                <a
+                                    href="https://portal-cornell.github.io/manicast/"
+                                    target="_blank"
+                                    >Project Page</a
+                                >
+                                /
+                                <a
+                                    href="https://arxiv.org/abs/2310.13258"
+                                    target="_blank"
+                                    >Paper</a
+                                >
+                                /
+                                <a
+                                    href="https://github.com/portal-cornell/manicast"
+                                    target="_blank"
+                                    >Code</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="publications">
+                    <div class="publication-card">
+                        <div class="publication-thumbnail">
+                            <!-- Uncomment and replace src with your actual image path -->
+                            <img
+                                src="./images/DINK.png"
+                                alt="DINK Project Thumbnail"
+                            />
+                        </div>
+                        <div class="publication-content">
+                            <h3>DINK: Differently Initialized Q-Networks</h3>
+                            <p>Atiksh Bhardwaj, Jonathen Chen</p>
+                            <p>
+                                Q-Networks represent an off-policy reinforcement
+                                learning approach centered on estimating value
+                                functions from environments. As an off-policy
+                                method, it relies on an external dataset for
+                                learning and computing Q-values. This dependency
+                                on provided data can yield diverse outcomes,
+                                either enhancing or hindering the Q-Network's
+                                performance. To delve into this dynamic, we
+                                embarked on an investigation utilizing
+                                conventional imitation learning techniques like
+                                Behavior Cloning and DAgger to generate data for
+                                training Q-Networks.
+                            </p>
+                            <p>
+                                <a
+                                    href="https://www.youtube.com/watch?v=PskK09o84-k"
+                                    target="_blank"
+                                    >Video</a
+                                >
+                                /
+                                <a href="./docs/DINKPaper.pdf" target="_blank"
+                                    >Paper</a
+                                >
+                                /
+                                <a
+                                    href="https://github.com/AtikshB/DINK-CS4756-Final"
+                                    target="_blank"
+                                    >Code</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="contact-info">
+                    <a href="mailto:ab2635@cornell.edu" target="_blank"
+                        ><i class="fa fa-envelope-square fa-4x"></i
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/atiksh-bhardwaj-b080ab241/"
+                        target="_blank"
+                        ><i class="fa fa-linkedin-square fa-4x"></i
+                    ></a>
+                    <a href="https://github.com/AtikshB" target="_blank"
+                        ><i class="fa fa-github-square fa-4x"></i
+                    ></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Atiksh Bhardwaj. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+            const toggleSwitch = document.querySelector("#checkbox");
+            const html = document.documentElement;
+
+            // Check for saved theme preference
+            const currentTheme = localStorage.getItem("theme");
+            if (currentTheme) {
+                html.setAttribute("data-theme", currentTheme);
+                if (currentTheme === "light") {
+                    toggleSwitch.checked = true;
+                }
             }
-        }
 
-        // Handle theme switch
-        function switchTheme(e) {
-            if (e.target.checked) {
-                html.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
+            // Handle theme switch
+            function switchTheme(e) {
+                if (e.target.checked) {
+                    html.setAttribute("data-theme", "light");
+                    localStorage.setItem("theme", "light");
+                } else {
+                    html.setAttribute("data-theme", "dark");
+                    localStorage.setItem("theme", "dark");
+                }
             }
-        }
 
-        toggleSwitch.addEventListener('change', switchTheme);
-    </script>
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.querySelector('nav ul');
-        
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    </script>
-</body>
+            toggleSwitch.addEventListener("change", switchTheme);
+        </script>
+        <script>
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navMenu = document.querySelector("nav ul");
+
+            menuToggle.addEventListener("click", () => {
+                navMenu.classList.toggle("active");
+            });
+        </script>
+    </body>
 </html>
