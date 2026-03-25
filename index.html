@@ -51,6 +51,7 @@
 
             body {
                 font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 0.875rem;
                 line-height: 1.6;
                 color: var(--text-color);
                 background-color: var(--bg-color);
@@ -264,26 +265,109 @@
 
             /* Heading Styles */
             h1 {
-                font-size: clamp(2rem, 5vw, 2.5rem);
-                margin-bottom: 1rem;
+                font-size: clamp(1.4rem, 3vw, 1.75rem);
+                font-weight: 600;
+                margin-bottom: 0.75rem;
             }
 
             h2 {
-                font-size: clamp(1.5rem, 4vw, 2rem);
-                margin-bottom: 1.5rem;
-                /* Removed text-align: center */
+                font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+                font-weight: 600;
+                margin-bottom: 1rem;
             }
 
             h3 {
-                font-size: clamp(1.2rem, 3vw, 1.5rem);
-                margin-bottom: 1rem;
+                font-size: clamp(0.9rem, 1.8vw, 1rem);
+                font-weight: 600;
+                margin-bottom: 0.5rem;
             }
 
             .experience-content {
-                font-size: clamp(1.1rem, 1.1vw, 1.5rem);
+                font-size: 0.875rem;
+                line-height: 1.5;
+                margin-bottom: 0.75rem;
+                font-weight: 400;
+            }
+
+            /* Timeline Styles */
+            .timeline {
+                position: relative;
+                margin-top: 0.75rem;
+                padding-left: 1.25rem;
+                border-left: 2px solid var(--card-border);
+            }
+
+            .timeline-item {
+                position: relative;
+                margin-bottom: 1.1rem;
+            }
+
+            .timeline-item:last-child {
+                margin-bottom: 0;
+            }
+
+            .timeline-item::before {
+                content: "";
+                position: absolute;
+                left: calc(-1.25rem - 4px);
+                top: 0.3rem;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #3498db;
+                border: 2px solid var(--bg-color);
+            }
+
+            .timeline-date {
+                display: inline-block;
+                font-size: 0.7rem;
+                font-weight: 600;
+                color: #3498db;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 0.15rem;
+            }
+
+            .timeline-role {
+                font-size: 0.875rem;
+                font-weight: 400;
                 line-height: 1.4;
-                margin-bottom: 1rem;
-                font-weight: 500;
+                margin: 0;
+            }
+
+            .timeline-role a {
+                color: #3498db;
+                text-decoration: none;
+            }
+
+            .timeline-role a:hover {
+                text-decoration: underline;
+            }
+
+            /* Card Button Styles */
+            .card-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.4rem;
+                margin-top: 0.75rem;
+            }
+
+            .card-btn {
+                display: inline-block;
+                padding: 0.2rem 0.6rem;
+                border: 1px solid #3498db;
+                border-radius: 4px;
+                color: #3498db !important;
+                font-size: 0.75rem;
+                text-decoration: none !important;
+                transition: background-color 0.2s ease, color 0.2s ease;
+                margin-top: 0 !important;
+            }
+
+            .card-btn:hover {
+                background-color: #3498db;
+                color: white !important;
+                text-decoration: none !important;
             }
 
             .resume-button {
@@ -515,49 +599,46 @@
         <section id="experience">
             <div class="container">
                 <h2>Experience</h2>
-                <div class="about-container">
-                    <div class="about-content">
-                        <p class="experience-content">
-                            (Spring 2026 - Present) Research Assistant @ PRAXIS
-                        </p>
-                        <p class="experience-content">
-                            (Fall 2025) TA for Machine Learning (CS 3/5780) and
-                            Research Intern @ PoRTaL
-                        </p>
-                        <p class="experience-content">
-                            (Summer 2025) Software Engineering Intern @
-                            <a href="https://www.ti.com/" target="_blank"
-                                >Texas Instruments</a
-                            >
-                        </p>
-                        <p class="experience-content">
-                            (Spring 2025) TA for Reinforcement Learning (CS
-                            4/5789) and Research Intern @ PoRTaL
-                        </p>
-                        <p class="experience-content">
-                            (Fall 2024) TA for Robot Learning (CS 4/5756) and
-                            Research Intern @ PoRTaL
-                        </p>
-                        <p class="experience-content">
-                            (Summer 2024) Research Intern @ PoRTaL
-                        </p>
-                        <p class="experience-content">
-                            (Spring 2024) TA for Artificial Intelligence (CS
-                            4700) and Research Intern @ PoRTaL
-                        </p>
-                        <p class="experience-content">
-                            (Fall 2023) Consultant for Functional Programming
-                            (CS 3110) and Research Intern @ PoRTaL
-                        </p>
-                        <p class="experience-content">
-                            (Summer 2023) Research Intern @ PoRTaL
-                        </p>
-                        <p class="experience-content">
-                            (Summer 2022) Robotics Intern @
-                            <a href="https://brains4drones.com/" target="_blank"
-                                >Brains4Drones</a
-                            >
-                        </p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">Spring 2026 – Present</span>
+                        <p class="timeline-role">Research Assistant @ PRAXIS</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Fall 2025</span>
+                        <p class="timeline-role">TA for Machine Learning (CS 3/5780) and Research Intern @ PoRTaL</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Summer 2025</span>
+                        <p class="timeline-role">Software Engineering Intern @ <a href="https://www.ti.com/" target="_blank">Texas Instruments</a></p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Spring 2025</span>
+                        <p class="timeline-role">TA for Reinforcement Learning (CS 4/5789) and Research Intern @ PoRTaL</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Fall 2024</span>
+                        <p class="timeline-role">TA for Robot Learning (CS 4/5756) and Research Intern @ PoRTaL</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Summer 2024</span>
+                        <p class="timeline-role">Research Intern @ PoRTaL</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Spring 2024</span>
+                        <p class="timeline-role">TA for Artificial Intelligence (CS 4700) and Research Intern @ PoRTaL</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Fall 2023</span>
+                        <p class="timeline-role">Consultant for Functional Programming (CS 3110) and Research Intern @ PoRTaL</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Summer 2023</span>
+                        <p class="timeline-role">Research Intern @ PoRTaL</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Summer 2022</span>
+                        <p class="timeline-role">Robotics Intern @ <a href="https://brains4drones.com/" target="_blank">Brains4Drones</a></p>
                     </div>
                 </div>
             </div>
@@ -625,25 +706,11 @@
                                 Conference on Robotics and Automation (ICRA),
                                 2025
                             </p>
-                            <p>
-                                <a
-                                    href="https://portal-cornell.github.io/X-Diffusion/"
-                                    target="_blank"
-                                    >Project Page</a
-                                >
-                                /
-                                <a
-                                    href="https://arxiv.org/abs/2511.04671"
-                                    target="_blank"
-                                    >Paper</a
-                                >
-                                /
-                                <a
-                                    href="https://github.com/portal-cornell/X-Diffusion"
-                                    target="_blank"
-                                    >Code (Coming Soon)</a
-                                >
-                            </p>
+                            <div class="card-links">
+                                <a href="https://portal-cornell.github.io/X-Diffusion/" target="_blank" class="card-btn">Project Page</a>
+                                <a href="https://arxiv.org/abs/2511.04671" target="_blank" class="card-btn">Paper</a>
+                                <a href="https://github.com/portal-cornell/X-Diffusion" target="_blank" class="card-btn">Code (Coming Soon)</a>
+                            </div>
                         </div>
                     </div>
                     <div class="publication-card">
@@ -671,25 +738,11 @@
                                 Selected as Spotlight Paper (Top 3%, 688
                                 selected out of 21544 submissions)
                             </p>
-                            <p>
-                                <a
-                                    href="https://gokul.dev/sailor/"
-                                    target="_blank"
-                                    >Project Page</a
-                                >
-                                /
-                                <a
-                                    href="https://arxiv.org/abs/2506.05294"
-                                    target="_blank"
-                                    >Paper</a
-                                >
-                                /
-                                <a
-                                    href="https://github.com/arnavkj1995/SAILOR"
-                                    target="_blank"
-                                    >Code</a
-                                >
-                            </p>
+                            <div class="card-links">
+                                <a href="https://gokul.dev/sailor/" target="_blank" class="card-btn">Project Page</a>
+                                <a href="https://arxiv.org/abs/2506.05294" target="_blank" class="card-btn">Paper</a>
+                                <a href="https://github.com/arnavkj1995/SAILOR" target="_blank" class="card-btn">Code</a>
+                            </div>
                         </div>
                     </div>
                     <div class="publication-card">
@@ -722,25 +775,11 @@
                                 Workshop and Best Poster Award at the ICRA 2024
                                 MoMa Workshop
                             </p>
-                            <p>
-                                <a
-                                    href="https://portal-cornell.github.io/MOSAIC/"
-                                    target="_blank"
-                                    >Project Page</a
-                                >
-                                /
-                                <a
-                                    href="https://arxiv.org/abs/2402.18796"
-                                    target="_blank"
-                                    >Paper</a
-                                >
-                                /
-                                <a
-                                    href="https://github.com/portal-cornell/MOSAIC"
-                                    target="_blank"
-                                    >Code</a
-                                >
-                            </p>
+                            <div class="card-links">
+                                <a href="https://portal-cornell.github.io/MOSAIC/" target="_blank" class="card-btn">Project Page</a>
+                                <a href="https://arxiv.org/abs/2402.18796" target="_blank" class="card-btn">Paper</a>
+                                <a href="https://github.com/portal-cornell/MOSAIC" target="_blank" class="card-btn">Code</a>
+                            </div>
                         </div>
                     </div>
                     <div class="publication-card">
@@ -763,25 +802,11 @@
                                 IEEE International Conference on Robotics and
                                 Automation (ICRA), 2024
                             </p>
-                            <p>
-                                <a
-                                    href="https://portal-cornell.github.io/interact/"
-                                    target="_blank"
-                                    >Project Page</a
-                                >
-                                /
-                                <a
-                                    href="https://arxiv.org/abs/2311.12943"
-                                    target="_blank"
-                                    >Paper</a
-                                >
-                                /
-                                <a
-                                    href="https://github.com/portal-cornell/interact/"
-                                    target="_blank"
-                                    >Code</a
-                                >
-                            </p>
+                            <div class="card-links">
+                                <a href="https://portal-cornell.github.io/interact/" target="_blank" class="card-btn">Project Page</a>
+                                <a href="https://arxiv.org/abs/2311.12943" target="_blank" class="card-btn">Paper</a>
+                                <a href="https://github.com/portal-cornell/interact/" target="_blank" class="card-btn">Code</a>
+                            </div>
                         </div>
                     </div>
 
@@ -806,25 +831,11 @@
                                 7th Annual Conference on Robot Learning (CoRL),
                                 2023
                             </p>
-                            <p>
-                                <a
-                                    href="https://portal-cornell.github.io/manicast/"
-                                    target="_blank"
-                                    >Project Page</a
-                                >
-                                /
-                                <a
-                                    href="https://arxiv.org/abs/2310.13258"
-                                    target="_blank"
-                                    >Paper</a
-                                >
-                                /
-                                <a
-                                    href="https://github.com/portal-cornell/manicast"
-                                    target="_blank"
-                                    >Code</a
-                                >
-                            </p>
+                            <div class="card-links">
+                                <a href="https://portal-cornell.github.io/manicast/" target="_blank" class="card-btn">Project Page</a>
+                                <a href="https://arxiv.org/abs/2310.13258" target="_blank" class="card-btn">Paper</a>
+                                <a href="https://github.com/portal-cornell/manicast" target="_blank" class="card-btn">Code</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -861,23 +872,11 @@
                                 Behavior Cloning and DAgger to generate data for
                                 training Q-Networks.
                             </p>
-                            <p>
-                                <a
-                                    href="https://www.youtube.com/watch?v=PskK09o84-k"
-                                    target="_blank"
-                                    >Video</a
-                                >
-                                /
-                                <a href="./docs/DINKPaper.pdf" target="_blank"
-                                    >Paper</a
-                                >
-                                /
-                                <a
-                                    href="https://github.com/AtikshB/DINK-CS4756-Final"
-                                    target="_blank"
-                                    >Code</a
-                                >
-                            </p>
+                            <div class="card-links">
+                                <a href="https://www.youtube.com/watch?v=PskK09o84-k" target="_blank" class="card-btn">Video</a>
+                                <a href="./docs/DINKPaper.pdf" target="_blank" class="card-btn">Paper</a>
+                                <a href="https://github.com/AtikshB/DINK-CS4756-Final" target="_blank" class="card-btn">Code</a>
+                            </div>
                         </div>
                     </div>
                 </div>
