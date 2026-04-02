@@ -439,8 +439,17 @@
                     <h1>Atiksh Bhardwaj</h1>
                 </div>
                 <div class="top-bar-right">
-                    <a href="./docs/resume_bhardwaj.pdf" target="_blank" class="resume-link">Resume</a>
-                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <a
+                        href="./docs/resume_bhardwaj.pdf"
+                        target="_blank"
+                        class="resume-link"
+                        >Resume</a
+                    >
+                    <button
+                        id="theme-toggle"
+                        class="theme-toggle-btn"
+                        aria-label="Toggle theme"
+                    >
                         <i class="fa fa-sun-o"></i>
                     </button>
                 </div>
@@ -461,10 +470,10 @@
                     <!-- About Text -->
                     <div class="about-content">
                         <p>
-                            Hi, I'm Atiksh and recently graduated from Cornell
-                            University with a Bachelor's degree in Computer
-                            Science. At Cornell, I'm part of the Praxis research
-                            group advised by Prof.
+                            Hi, I'm Atiksh and I am currently a Master's student
+                            studying Computer Science at Cornell University. At
+                            Cornell, I'm part of the Praxis research group
+                            advised by Prof.
                             <a
                                 href="https://pculbertson.github.io/"
                                 target="_blank"
@@ -929,7 +938,8 @@
             const icon = themeBtn.querySelector("i");
 
             function updateIcon(theme) {
-                icon.className = theme === "light" ? "fa fa-moon-o" : "fa fa-sun-o";
+                icon.className =
+                    theme === "light" ? "fa fa-moon-o" : "fa fa-sun-o";
             }
 
             const savedTheme = localStorage.getItem("theme") || "dark";
@@ -937,7 +947,10 @@
             updateIcon(savedTheme);
 
             themeBtn.addEventListener("click", () => {
-                const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+                const next =
+                    html.getAttribute("data-theme") === "dark"
+                        ? "light"
+                        : "dark";
                 html.setAttribute("data-theme", next);
                 localStorage.setItem("theme", next);
                 updateIcon(next);
@@ -946,8 +959,10 @@
             const progressBar = document.getElementById("progress-bar");
             window.addEventListener("scroll", () => {
                 const scrolled = window.scrollY;
-                const total = document.documentElement.scrollHeight - window.innerHeight;
-                progressBar.style.width = total > 0 ? (scrolled / total * 100) + "%" : "0%";
+                const total =
+                    document.documentElement.scrollHeight - window.innerHeight;
+                progressBar.style.width =
+                    total > 0 ? (scrolled / total) * 100 + "%" : "0%";
             });
         </script>
     </body>
