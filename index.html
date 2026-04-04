@@ -33,13 +33,32 @@
                 --hover-color: #3498db;
             }
 
+            @media (prefers-color-scheme: light) {
+                :root {
+                    --bg-color: #ffffff;
+                    --text-color: #333333;
+                    --nav-bg: #ffffff;
+                    --card-bg: #ffffff;
+                    --card-border: #dddddd;
+                    --hover-color: #3498db;
+                }
+            }
+
             [data-theme="light"] {
-                /* Light theme variables */
                 --bg-color: #ffffff;
                 --text-color: #333333;
-                --nav-bg: #727272c7;
+                --nav-bg: #ffffff;
                 --card-bg: #ffffff;
                 --card-border: #dddddd;
+                --hover-color: #3498db;
+            }
+
+            [data-theme="dark"] {
+                --bg-color: #1a1a1a;
+                --text-color: #ffffff;
+                --nav-bg: #1a1a1a;
+                --card-bg: #2d2d2d;
+                --card-border: #404040;
                 --hover-color: #3498db;
             }
 
@@ -942,17 +961,13 @@
                     theme === "light" ? "fa fa-moon-o" : "fa fa-sun-o";
             }
 
-            const savedTheme = localStorage.getItem("theme") || "dark";
-            html.setAttribute("data-theme", savedTheme);
-            updateIcon(savedTheme);
+            const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            html.setAttribute("data-theme", systemTheme);
+            updateIcon(systemTheme);
 
             themeBtn.addEventListener("click", () => {
-                const next =
-                    html.getAttribute("data-theme") === "dark"
-                        ? "light"
-                        : "dark";
+                const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
                 html.setAttribute("data-theme", next);
-                localStorage.setItem("theme", next);
                 updateIcon(next);
             });
 
