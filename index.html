@@ -459,10 +459,10 @@
                 </div>
                 <div class="top-bar-right">
                     <a
-                        href="./docs/resume_bhardwaj.pdf"
+                        href="./docs/grad-cv.pdf"
                         target="_blank"
                         class="resume-link"
-                        >Resume</a
+                        >CV</a
                     >
                     <button
                         id="theme-toggle"
@@ -489,10 +489,18 @@
                     <!-- About Text -->
                     <div class="about-content">
                         <p>
-                            Hi, I'm Atiksh and I am currently a Master's student
-                            studying Computer Science at Cornell University. At
-                            Cornell, I'm part of the Praxis research group
+                            Hi, I'm Atiksh and I am an incoming Master's student
+                            studying Robotics at Carnegie Mellon University
                             advised by Prof.
+                            <a
+                                href="https://www.cs.cmu.edu/~abajcsy/"
+                                target="_blank"
+                                >Andrea Bajcsy</a
+                            >. I will be supported by the
+                            <a href="https://www.nsfgrfp.org/" target="_blank"
+                                >NSF GRFP</a
+                            >. Currently, I'm part of the Praxis research group
+                            at Cornell University advised by Prof.
                             <a
                                 href="https://pculbertson.github.io/"
                                 target="_blank"
@@ -606,6 +614,23 @@
             <div class="container">
                 <h2>News and Media</h2>
                 <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">Apr. 20, 2026</span>
+                        <p class="timeline-role">
+                            I have been awarded the
+                            <a href="https://www.nsfgrfp.org/" target="_blank"
+                                >NSF GRFP</a
+                            >
+                            which will support my research at Carnegie Mellon
+                            University as an
+                            <a
+                                href="https://www.ri.cmu.edu/education/academic-programs/master-of-science-robotics/"
+                                target="_blank"
+                                >MSR</a
+                            >
+                            student.
+                        </p>
+                    </div>
                     <div class="timeline-item">
                         <span class="timeline-date">Oct. 16, 2022</span>
                         <p class="timeline-role">
@@ -936,7 +961,7 @@
         <section id="contact">
             <div class="container">
                 <div class="contact-info">
-                    <a href="mailto:ab2635@cornell.edu" target="_blank"
+                    <a href="mailto:atikshb@andrew.cmu.edu" target="_blank"
                         ><i class="fa fa-envelope-square fa-4x"></i
                     ></a>
                     <a
@@ -961,12 +986,19 @@
                     theme === "light" ? "fa fa-moon-o" : "fa fa-sun-o";
             }
 
-            const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            const systemTheme = window.matchMedia(
+                "(prefers-color-scheme: light)",
+            ).matches
+                ? "light"
+                : "dark";
             html.setAttribute("data-theme", systemTheme);
             updateIcon(systemTheme);
 
             themeBtn.addEventListener("click", () => {
-                const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+                const next =
+                    html.getAttribute("data-theme") === "dark"
+                        ? "light"
+                        : "dark";
                 html.setAttribute("data-theme", next);
                 updateIcon(next);
             });
